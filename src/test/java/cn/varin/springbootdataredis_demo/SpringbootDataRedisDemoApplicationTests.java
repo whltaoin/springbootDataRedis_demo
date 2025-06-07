@@ -13,14 +13,25 @@ class SpringbootDataRedisDemoApplicationTests {
 	@Autowired
 	RedisTemplate redisTemplate;
 	@Test
-	void setTest() {
+	void setTest1() {
 
 		ValueOperations valueOperations = redisTemplate.opsForValue();
-		valueOperations.set("user:1",new User("varin",1).toString());
+		valueOperations.set("user:2",new User("varin",1).toString());
 		Object o = valueOperations.get("user:1");
 		System.out.println(o);
 
 
 	}
+	@Test
+	void setTest2() {
+
+		ValueOperations valueOperations = redisTemplate.opsForValue();
+		valueOperations.set("user:2",new User("varin",1));
+		Object o = valueOperations.get("user:1");
+		System.out.println(o);
+
+
+	}
+
 
 }
